@@ -3,7 +3,7 @@ import ReactDOM from "react-dom";
 import { Provider } from "react-redux";
 
 import reportWebVitals from "./reportWebVitals";
-import * as serviceWorker from "./servicesWorker";
+import * as serviceWorkerRegistration from "./serviceWorkerRegistration";
 
 import App from "routes/MainRoutes";
 import store from "stores";
@@ -20,4 +20,4 @@ ReactDOM.render(
 );
 
 reportWebVitals();
-serviceWorker.register();
+serviceWorkerRegistration.register();
