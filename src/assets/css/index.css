@@ -1,3 +1,58 @@
 @tailwind base;
 @tailwind components;
 @tailwind utilities;
+
+:root {
+  --hue-color: 190;
+
+  --primary: hsl(var(--hue-color), 64%, 22%);
+  --primary-accent: hsl(var(--hue-color), 64%, 22%);
+  --primary-alt: hsl(var(--hue-color), 64%, 15%);
+  --secondary: hsl(var(--hue-color), 64%, 8%);
+
+  --background: hsl(var(--hue-color), 100%, 99%);
+
+  --title-color: hsl(var(--hue-color), 64%, 18%);
+  --text-color: hsl(var(--hue-color), 24%, 35%);
+  --text-color-light: hsl(var(--hue-color), 8%, 60%);
+
+  --input-color: hsl(var(--hue-color), 24%, 97%);
+}
+
+@layer base {
+  @font-face {
+    font-family: Poppins;
+    font-weight: 400;
+    src: url(../fonts/Poppins-Regular.ttf) format("truetype");
+  }
+
+  @font-face {
+    font-family: Poppins;
+    font-weight: 500;
+    src: url(../fonts/Poppins-Medium.ttf) format("truetype");
+  }
+
+  @font-face {
+    font-family: Poppins;
+    font-weight: 600;
+    src: url(../fonts/Poppins-SemiBold.ttf) format("truetype");
+  }
+
+  @font-face {
+    font-family: Poppins;
+    font-weight: 700;
+    src: url(../fonts/Poppins-Bold.ttf) format("truetype");
+  }
+
+  body {
+    @apply bg-background text-textColor font-poppins;
+  }
+
+  .button {
+    @apply bg-primary hover:bg-primaryAlt rounded-md focus:outline-none text-gray-50 text-sm;
+  }
+
+  .title {
+    @apply text-titleColor font-semibold;
+  }
+}
