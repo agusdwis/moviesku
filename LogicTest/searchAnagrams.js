@@ -28,3 +28,11 @@ function sortAnagrams(array) {
 console.log(
   sortAnagrams(["kita", "atik", "tika", "aku", "kia", "makan", "kua"])
 );
+
+// Result
+// [
+//   [ 'kita', 'atik', 'tika' ],
+//   [ 'aku', 'kua' ],
+//   [ 'makan' ],
+//   [ 'kia' ]
+// ]
