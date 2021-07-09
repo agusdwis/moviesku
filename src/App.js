@@ -1,7 +1,9 @@
+import "./index.css";
+
 function App() {
   return (
     <dev>
-      <p>Moviesku App</p>
+      <p className="text-red-500">Moviesku App</p>
     </dev>
   );
 }
