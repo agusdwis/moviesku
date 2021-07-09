@@ -1,15 +1,17 @@
-/* eslint-disable no-unused-vars */
-import React from "react";
-import PropTypes from "prop-types";
+import React, { Fragment, lazy } from "react";
+
+const NavigationBar = lazy(() => import("components/Navigation"));
+const Banner = lazy(() => import("components/Banner"));
 
 const HomePage = (props) => {
   return (
-    <div>
-      <p className="text-red-700">MoviesKu Home</p>
-    </div>
+    <Fragment>
+      <NavigationBar />
+      <main className="flex justify-center w-full">
+        <Banner />
+      </main>
+    </Fragment>
   );
 };
-
-HomePage.propTypes = {};
 
 export default HomePage;

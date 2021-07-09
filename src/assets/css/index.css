@@ -3,20 +3,26 @@
 @tailwind utilities;
 
 :root {
-  --hue-color: 190;
+  --header-height: 4rem;
+
+  --hue-color: 210;
+  --hue-secondary: 4;
 
   --primary: hsl(var(--hue-color), 64%, 22%);
-  --primary-accent: hsl(var(--hue-color), 64%, 22%);
+  --primary-accent: hsl(var(--hue-color), 54%, 12%);
   --primary-alt: hsl(var(--hue-color), 64%, 15%);
-  --secondary: hsl(var(--hue-color), 64%, 8%);
 
-  --background: hsl(var(--hue-color), 100%, 99%);
+  --secondary: hsl(var(--hue-secondary), 93%, 49%);
+  --secondary-accent: hsl(var(--hue-secondary), 83%, 39%);
+  --secondary-alt: hsl(var(--hue-secondary), 93%, 42%);
 
-  --title-color: hsl(var(--hue-color), 64%, 18%);
-  --text-color: hsl(var(--hue-color), 24%, 35%);
-  --text-color-light: hsl(var(--hue-color), 8%, 60%);
+  --background: hsl(var(--hue-color), 100%, 5%);
 
-  --input-color: hsl(var(--hue-color), 24%, 97%);
+  --title-color: hsl(var(--hue-color), 24%, 95%);
+  --text-color: hsl(var(--hue-color), 8%, 85%);
+  --text-color-light: hsl(var(--hue-color), 8%, 70%);
+
+  --input-color: hsl(var(--hue-color), 29%, 16%);
 }
 
 @layer base {
@@ -48,8 +54,20 @@
     @apply bg-background text-textColor font-poppins;
   }
 
+  main {
+    @apply overflow-x-hidden;
+  }
+
+  .section {
+    @apply px-0 md:px-32 pb-10;
+  }
+
+  .container {
+    @apply px-4 sm:px-6 md:px-20 max-w-screen-md;
+  }
+
   .button {
-    @apply bg-primary hover:bg-primaryAlt rounded-md focus:outline-none text-gray-50 text-sm;
+    @apply bg-secondary hover:bg-secondaryAccent rounded-lg focus:outline-none text-gray-50 text-sm;
   }
 
   .title {

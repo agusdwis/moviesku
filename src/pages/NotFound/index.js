@@ -1,10 +1,10 @@
-import React from "react";
+import React, { Fragment } from "react";
 import ErrorImage from "assets/svg/404.svg";
 import { Link } from "react-router-dom";
 
 const NotFound = (props) => {
   return (
-    <div>
+    <Fragment>
       <div className="h-screen p-5 flex flex-col">
         <div className="w-full h-3/5 md:h-2/3 flex justify-center items-center">
           <div className="w-full sm:max-w-sm md:max-w-lg animate-drop-slow">
@@ -26,11 +26,13 @@ const NotFound = (props) => {
           <p className="text-sm font-extralight">We suggest you back to home</p>
 
           <Link to="/">
-            <button className="button mt-7 p-3 w-32">Back to Home</button>
+            <button className="button mt-7 p-4 px-8 text-sm font-semibold">
+              Back to Home
+            </button>
           </Link>
         </div>
       </div>
-    </div>
+    </Fragment>
   );
 };
 
