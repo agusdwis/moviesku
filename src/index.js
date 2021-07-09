@@ -1,10 +1,14 @@
 import React from "react";
 import ReactDOM from "react-dom";
-import "assets/css/index.css";
-import App from "routes/MainRoutes";
-import reportWebVitals from "./reportWebVitals";
 import { Provider } from "react-redux";
+
+import reportWebVitals from "./reportWebVitals";
+import * as serviceWorker from "./servicesWorker";
+
+import App from "routes/MainRoutes";
 import store from "stores";
+
+import "assets/css/index.css";
 
 ReactDOM.render(
   <React.StrictMode>
@@ -16,3 +20,4 @@ ReactDOM.render(
 );
 
 reportWebVitals();
+serviceWorker.register();
