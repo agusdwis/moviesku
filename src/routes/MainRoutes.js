@@ -7,7 +7,7 @@ const NotFound = lazy(() => import("pages/NotFound"));
 const MainRoutes = () => {
   return (
     <BrowserRouter>
-      <Suspense fallback={<div>Loading...</div>}>
+      <Suspense fallback={<FallBack />}>
         <Switch>
           <Switch>
             <Route exact path="/" render={(props) => <Home {...props} />} />
@@ -16,6 +16,14 @@ const MainRoutes = () => {
         </Switch>
       </Suspense>
     </BrowserRouter>
+  );
+};
+
+const FallBack = () => {
+  return (
+    <div className="h-screen flex items-center bg-background">
+      <p className="text-textColorLight">Loading</p>
+    </div>
   );
 };
 

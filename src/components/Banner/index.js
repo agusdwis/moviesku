@@ -23,7 +23,7 @@ const Banner = (props) => {
             </b>
           </h1>
           <button className="transform duration-300 hover:scale-105 button mt-7 p-5 px-10 text-lg font-semibold flex flex-row items-center">
-            <i class="ri-search-eye-line"></i>
+            <i className="ri-search-eye-line"></i>
             <p className="text-white pl-3">Explore</p>
           </button>
         </div>

@@ -71,6 +71,6 @@
   }
 
   .title {
-    @apply text-titleColor font-semibold;
+    @apply text-white opacity-90 font-semibold;
   }
 }
