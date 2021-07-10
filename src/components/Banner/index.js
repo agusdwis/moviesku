@@ -34,7 +34,7 @@ const Banner = (props) => {
         </div>
 
         <div className="h-3/10 w-full relative">
-          <div className="absolute w-7/10 sm:w-6/10 md:w-3/10 bg-primary bottom-10 right-0 p-5 flex flex-row opacity-80 hover:opacity-90 rounded-sm">
+          <div className="absolute w-7/10 sm:w-6/10 md:w-5/10 xl:w-3/10 bg-primary bottom-10 right-0 p-5 flex flex-row opacity-80 hover:opacity-90 rounded-sm">
             <div className="w-1/2 flex flex-col justify-center pr-5">
               <span className="text-xs sm:text-md">5 best movies to watch</span>
               <div className="flex-0">

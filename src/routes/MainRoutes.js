@@ -21,7 +21,7 @@ const MainRoutes = () => {
 
 const FallBack = () => {
   return (
-    <div className="h-screen flex items-center bg-background">
+    <div className="h-screen w-full flex items-center justify-center bg-background opacity-0">
       <p className="text-textColorLight">Loading</p>
     </div>
   );

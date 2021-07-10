@@ -12,12 +12,19 @@ const NavigationBar = (props) => {
     };
     window.addEventListener("scroll", onScroll);
 
-    if (scrollTop > 100) {
+    if (scrollTop >= 200 && scrollTop < 400) {
       header.classList.add("shadow-sm");
       header.classList.add("bg-background");
+      header.classList.add("opacity-50");
+      header.classList.remove("opacity-100");
+    } else if (scrollTop >= 400) {
+      header.classList.remove("opacity-50");
+      header.classList.add("opacity-100");
     } else {
       header.classList.remove("shadow-sm");
       header.classList.remove("bg-background");
+      header.classList.remove("opacity-100");
+      header.classList.add("bg-transparent");
     }
 
     return () => window.removeEventListener("scroll", onScroll);
@@ -25,7 +32,7 @@ const NavigationBar = (props) => {
 
   return (
     <header
-      className="w-full top-0 left-0 bg-transparent z-40 fixed flex justify-center"
+      className="w-full top-0 left-0 z-40 fixed flex justify-center opacity-100"
       id="header"
     >
       <nav className="h-header flex justify-between items-center w-full container">
