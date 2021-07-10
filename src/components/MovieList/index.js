@@ -2,7 +2,7 @@ import React from "react";
 
 const MovieList = (props) => {
   return (
-    <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4">
+    <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-2 lg:grid-cols-4">
       {Data.map((item, id) => (
         <div key={id} className="group cursor-pointer px-2 my-2 relative">
           <div className="group overflow-hidden relative">

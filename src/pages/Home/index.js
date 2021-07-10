@@ -3,6 +3,7 @@ import React, { Fragment, lazy } from "react";
 const NavigationBar = lazy(() => import("components/Navigation"));
 const Banner = lazy(() => import("components/Banner"));
 const Movies = lazy(() => import("components/MovieList"));
+const Footer = lazy(() => import("components/Footer"));
 
 const HomePage = (props) => {
   return (
@@ -37,6 +38,7 @@ const HomePage = (props) => {
           </div>
         </section>
       </main>
+      <Footer />
     </Fragment>
   );
 };
