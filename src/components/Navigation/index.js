@@ -12,7 +12,7 @@ const NavigationBar = (props) => {
     };
     window.addEventListener("scroll", onScroll);
 
-    if (scrollTop > 100) {
+    if (scrollTop > 200) {
       header.classList.add("shadow-sm");
       header.classList.add("bg-background");
     } else {

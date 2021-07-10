@@ -26,7 +26,7 @@ const NotFound = (props) => {
 
         <div className="w-full flex-grow flex flex-col items-center animate-drop z-10">
           <p className="title text-xl font-bold mb-3">
-            Whoops!! Lost in places?
+            Whoops!! Lost in movie actions?
           </p>
           <p className="text-sm font-extralight">
             The page you're looking isn't found :(

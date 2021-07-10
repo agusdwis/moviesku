@@ -27,6 +27,26 @@ const Banner = (props) => {
             <p className="text-white pl-3">Explore</p>
           </button>
         </div>
+
+        <div className="absolute bg-primary w-1/3 right-0 bottom-14 p-5 hidden lg:flex flex-row opacity-80 hover:opacity-90 rounded-sm">
+          <div className="w-1/2 flex flex-col justify-center pr-5">
+            <span className="text-xs sm:text-md">5 best movies to watch</span>
+            <div className="flex-0">
+              <button className="flex items-center mt-3">
+                <p className="text-xs sm:text-md">More</p>
+                <i className="ri-arrow-right-line"></i>
+              </button>
+            </div>
+          </div>
+
+          <div className="w-1/2 overflow-hidden cursor-pointer">
+            <img
+              src={HomePost}
+              alt=""
+              className="w-52 h-20 sm:h-28 transform duration-300 hover:scale-110"
+            />
+          </div>
+        </div>
       </div>
     </section>
   );
