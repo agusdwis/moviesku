@@ -35,7 +35,7 @@ const NavigationBar = (props) => {
           <p className="hover:text-white font-medium">MovieKu</p>
         </Link>
 
-        <div className="w-4/10 hidden sm:block">
+        <div className="w-4/10 sm:w-3/10 hidden sm:block">
           <ul className="flex flex-row justify-between">
             <li className="">
               <a href="#home" className="font-medium hover:text-white text-sm">
@@ -54,7 +54,7 @@ const NavigationBar = (props) => {
             </li>
             <li className="">
               <a href="#home" className="font-medium hover:text-white text-sm">
-                Episodes
+                Explore
               </a>
             </li>
           </ul>
@@ -92,7 +92,7 @@ const NavigationBar = (props) => {
                   href="#about"
                   className="text-textColorLight uppercase font-regular hover:text-textColor"
                 >
-                  Episodes
+                  Explore
                 </a>
               </li>
             </ul>

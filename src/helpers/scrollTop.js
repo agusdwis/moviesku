@@ -3,7 +3,7 @@ import React from "react";
 const ScrollTop = ({ onClick }) => {
   return (
     <div
-      onClick={() => onClick()}
+      onClick={() => window.scrollTo({ top: 0, behavior: "smooth" })}
       className="z-40 animate-up fixed bottom-10 right-5 sm:bottom-20 sm:right-10 bg-primary p-3 sm:p-4 rounded-md sm:rounded-xl sm:transform sm:hover:translate-y-1 duration-300 cursor-pointer"
     >
       <svg

@@ -4,9 +4,10 @@ import { Link } from "react-router-dom";
 import HomePost from "assets/img/home.jpeg";
 
 const Banner = (props) => {
-  const handleChangeRoute = () => {
-    props.history.push("/browse/search");
-  };
+  // const handleChangeRoute = () => {
+  //   props.history.push("/browse/search");
+  // };
+
   return (
     <section
       id="relative"
@@ -42,7 +43,7 @@ const Banner = (props) => {
         <div className="h-3/10 w-full relative">
           <div className="absolute w-7/10 sm:w-6/10 md:w-5/10 xl:w-3/10 bg-primary bottom-10 right-0 p-5 flex flex-row opacity-80 hover:opacity-90 rounded-sm">
             <div className="w-1/2 flex flex-col justify-center pr-5">
-              <span className="text-xs sm:text-md">5 best movies to watch</span>
+              <span className="text-xs sm:text-md">Best movies to watch</span>
               <div className="flex-0">
                 <button className="flex items-center mt-3">
                   <p className="text-xs sm:text-md">More</p>
