@@ -43,7 +43,6 @@ const HomePage = () => {
         </section>
       </main>
       <Footer />
-
       {scrollPos >= 700 && <ScrollTop />}
     </Fragment>
   );

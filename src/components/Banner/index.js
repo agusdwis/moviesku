@@ -1,8 +1,12 @@
 import React from "react";
+import { Link } from "react-router-dom";
 
 import HomePost from "assets/img/home.jpeg";
 
 const Banner = (props) => {
+  const handleChangeRoute = () => {
+    props.history.push("/browse/search");
+  };
   return (
     <section
       id="relative"
@@ -26,10 +30,12 @@ const Banner = (props) => {
             </b>
           </h1>
           <div>
-            <button className="transform duration-300 hover:scale-105 button p-5 px-10 text-lg font-semibold flex flex-row items-center">
-              <i className="ri-search-eye-line"></i>
-              <p className="text-white pl-3">Explore</p>
-            </button>
+            <Link to="/browse/search">
+              <button className="button transform duration-300 hover:scale-105 p-4 px-8 sm:p-5 sm:px-10 text-lg font-semibold flex flex-row items-center">
+                <i className="ri-search-eye-line"></i>
+                <p className="text-white pl-3">Explore</p>
+              </button>
+            </Link>
           </div>
         </div>
 
