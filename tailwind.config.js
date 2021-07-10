@@ -49,6 +49,7 @@ module.exports = {
       animation: {
         slide: "slide 0.5s ease",
         drop: "drop 0.5s ease",
+        up: "up 0.5s ease",
       },
       keyframes: {
         slide: {
@@ -69,6 +70,16 @@ module.exports = {
           "100%": {
             opacity: 1,
             transform: "translateX(0px)",
+          },
+        },
+        up: {
+          "0%": {
+            opacity: 0,
+            transform: "translateY(80px)",
+          },
+          "100%": {
+            opacity: 1,
+            transform: "translateY(0px)",
           },
         },
       },

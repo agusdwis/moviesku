@@ -1,9 +1,9 @@
 import React from "react";
 import { Link } from "react-router-dom";
 
-const Footer = (props) => {
+const Footer = () => {
   return (
-    <footer className="flex justify-center py-10">
+    <footer className="flex justify-center py-12">
       <div className="container">
         <div className="grid sm:grid-cols-2 md:grid-cols-4 py-10">
           <div className="mt-4 sm:mt-2 lg:pl-10">
@@ -112,10 +112,10 @@ const Footer = (props) => {
         </div>
 
         <div className="flex flex-col md:flex-row w-full justify-between items-center">
-          <p className="text-sm text-center font-extralight">
+          <p className="text-xs text-center font-extralight">
             &#169; 2021 MovieKu. All rigths reserved.
           </p>
-          <div className="text-sm flex justify-around lg:w-1/3 mt-2 md:mt-0">
+          <div className="text-xs flex justify-around lg:w-1/4 mt-2 md:mt-0">
             <Link to="/">
               <p className="font-extralight">Terms & Agreements</p>
             </Link>

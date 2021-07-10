@@ -1,23 +1,20 @@
 import React, { useState, useEffect } from "react";
 import { Link } from "react-router-dom";
+import useScrollTop from "hooks/scrollHook";
 
 const NavigationBar = (props) => {
-  const [scrollTop, setScrollTop] = useState(0);
+  const scrollPos = useScrollTop();
   const [show, setShow] = useState(false);
 
   useEffect(() => {
     const header = document.getElementById("header");
-    const onScroll = (e) => {
-      setScrollTop(e.target.documentElement.scrollTop);
-    };
-    window.addEventListener("scroll", onScroll);
 
-    if (scrollTop >= 200 && scrollTop < 400) {
+    if (scrollPos >= 200 && scrollPos < 400) {
       header.classList.add("shadow-sm");
       header.classList.add("bg-background");
       header.classList.add("opacity-50");
       header.classList.remove("opacity-100");
-    } else if (scrollTop >= 400) {
+    } else if (scrollPos >= 400) {
       header.classList.remove("opacity-50");
       header.classList.add("opacity-100");
     } else {
@@ -26,9 +23,7 @@ const NavigationBar = (props) => {
       header.classList.remove("opacity-100");
       header.classList.add("bg-transparent");
     }
-
-    return () => window.removeEventListener("scroll", onScroll);
-  }, [scrollTop]);
+  }, [scrollPos]);
 
   return (
     <header

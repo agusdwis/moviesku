@@ -1,11 +1,15 @@
 import React, { Fragment, lazy } from "react";
+import ScrollTop from "helpers/scrollTop";
+import useScrollTop from "hooks/scrollHook";
 
 const NavigationBar = lazy(() => import("components/Navigation"));
 const Banner = lazy(() => import("components/Banner"));
 const Movies = lazy(() => import("components/MovieList"));
 const Footer = lazy(() => import("components/Footer"));
 
-const HomePage = (props) => {
+const HomePage = () => {
+  const scrollPos = useScrollTop();
+
   return (
     <Fragment>
       <NavigationBar />
@@ -39,6 +43,8 @@ const HomePage = (props) => {
         </section>
       </main>
       <Footer />
+
+      {scrollPos >= 700 && <ScrollTop />}
     </Fragment>
   );
 };
