@@ -6,13 +6,13 @@ import useScrollTop from "hooks/scrollHook";
 
 import { getMovies, getSeries } from "stores/actions/movieActions";
 
-const NavigationBar = lazy(() => import("components/Navigation"));
+// const NavigationBar = lazy(() => import("components/Navigation"));
 const Banner = lazy(() => import("components/Banner"));
 const Movies = lazy(() => import("components/MovieList"));
 const Footer = lazy(() => import("components/Footer"));
 
 const HomePage = (props) => {
-  const scrollPos = useScrollTop();
+  const [scrollPos] = useScrollTop();
 
   useEffect(() => {
     const fetchData = async () => {
@@ -30,7 +30,7 @@ const HomePage = (props) => {
 
   return (
     <div className="bg-fixed bg-cover bg-hero-pattern">
-      <NavigationBar />
+      {/* <NavigationBar /> */}
       <div className="bg-gradient-to-t from-background via-background to-transparent">
         <Banner />
         <section className="w-full flex flex-col items-center">

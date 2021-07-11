@@ -3,6 +3,18 @@ import { useState, useEffect } from "react";
 const useScrollTop = () => {
   const [scrollTop, setScrollTop] = useState(0);
 
+  const goTop = () => {
+    window.scrollTo({ top: 0, behavior: "smooth" });
+  };
+
+  useEffect(() => {
+    const resetPage = () => {
+      window.scrollTo({ top: 0 });
+    };
+
+    resetPage();
+  }, []);
+
   useEffect(() => {
     const onScroll = (e) => {
       setScrollTop(e.target.documentElement.scrollTop);
@@ -12,7 +24,7 @@ const useScrollTop = () => {
     return () => window.removeEventListener("scroll", onScroll);
   }, [scrollTop]);
 
-  return scrollTop;
+  return [scrollTop, goTop];
 };
 
 export default useScrollTop;

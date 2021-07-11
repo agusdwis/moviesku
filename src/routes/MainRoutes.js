@@ -3,15 +3,23 @@ import { BrowserRouter, Route, Switch } from "react-router-dom";
 
 const Home = lazy(() => import("pages/Home"));
 const Browse = lazy(() => import("pages/Browse"));
+const MovieDetails = lazy(() => import("pages/Detail"));
 const NotFound = lazy(() => import("pages/NotFound"));
+const NavigationBar = lazy(() => import("components/Navigation"));
 
 const MainRoutes = () => {
   return (
     <BrowserRouter>
       <Suspense fallback={<FallBack />}>
+        <NavigationBar />
         <Switch>
           <Switch>
             <Route exact path="/" render={(props) => <Home {...props} />} />
+            <Route
+              exact
+              path="/movie/detail/:id/:title"
+              render={(props) => <MovieDetails {...props} />}
+            />
             <Route
               exact
               path="/browse/search"

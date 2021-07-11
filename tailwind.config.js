@@ -85,6 +85,7 @@ module.exports = {
       },
       backgroundImage: (theme) => ({
         "hero-pattern": "url('/src/assets/img/home.jpeg')",
+        "hero-detail": "url('/src/assets/img/detail.jpeg')",
       }),
     },
   },

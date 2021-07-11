@@ -1,6 +1,7 @@
 import React, { Fragment } from "react";
+import { Link } from "react-router-dom";
 
-const MovieList = ({ data, loading }) => {
+const MovieList = ({ data, loading, callback = () => {} }) => {
   return (
     <Fragment>
       {(data?.length !== 0 || data) && (
@@ -15,9 +16,14 @@ const MovieList = ({ data, loading }) => {
                   className="h-1/2 sm:h-96 transform duration-300 hover:scale-105 rounded-sm opacity-50 hover:opacity-100"
                 />
 
-                <button className="button group-hover:hidden absolute rounded-none p-2 px-3 right-0 bottom-0">
-                  <i className="ri-arrow-right-line"></i>
-                </button>
+                <Link to={`/movie/detail/${item.imdbID}/${item.Title}`}>
+                  <button
+                    onClick={() => callback()}
+                    className="button group-hover:hidden absolute rounded-none p-2 px-3 right-0 bottom-0"
+                  >
+                    <i className="ri-arrow-right-line"></i>
+                  </button>
+                </Link>
               </div>
 
               <div className="absolute inset-y-1/2 top-2/3 px-5">
@@ -33,7 +39,7 @@ const MovieList = ({ data, loading }) => {
         </div>
       )}
 
-      {(data?.length === 0 || !data) && (
+      {(data?.length === 0 || !data) && !loading && (
         <div className="group my-2">
           <p className="text-center text-semibold text-sm">No Data</p>
         </div>

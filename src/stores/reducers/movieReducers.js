@@ -6,6 +6,7 @@ const initialMovieState = {
     page: 1,
     data: [],
   },
+  detail: null,
 };
 
 const MovieReducers = (movieState = initialMovieState, action) => {
@@ -40,6 +41,11 @@ const MovieReducers = (movieState = initialMovieState, action) => {
           page: movieState.search.page + 1,
           data: [...movieState.search.data, ...action.payload?.Search],
         },
+      };
+    case "SUCCESS_GET_DETAIL":
+      return {
+        ...movieState,
+        detail: action.payload,
       };
     default:
       return {

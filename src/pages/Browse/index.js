@@ -8,11 +8,11 @@ import Category from "helpers/searchCategory";
 
 import { getSearchData } from "stores/actions/movieActions";
 
-const NavigationBar = lazy(() => import("components/Navigation"));
+// const NavigationBar = lazy(() => import("components/Navigation"));
 const Movies = lazy(() => import("components/MovieList"));
 
 const Browse = (props) => {
-  const scrollPos = useScrollTop();
+  const [scrollPos] = useScrollTop();
   const [search, setSearch] = useState("Batman");
   const [page, setPage] = useState(1);
   const [loadMore, setLoadMore] = useState(true);
@@ -95,8 +95,7 @@ const Browse = (props) => {
 
   return (
     <div id="result" className="relative bg-fixed bg-cover bg-hero-pattern">
-      <NavigationBar />
-
+      {/* <NavigationBar /> */}
       <div className="mt-header bg-gradient-to-t from-background via-background to-transparent">
         <div className="w-full flex flex-col items-center">
           <div className="container h-80 mt-10">

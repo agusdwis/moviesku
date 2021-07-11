@@ -53,6 +53,7 @@ export const getSeries = ({ search = "2021", page = 1 }) => {
   };
 };
 
+//UNUSED -> API Problem
 export const getEpisodes = ({ search = "2021", season = 1, page = 1 }) => {
   return async (dispatch) => {
     await axios
@@ -105,6 +106,31 @@ export const getSearchData = ({ search = "2021", page = 1, params = {} }) => {
       .catch(() => {
         dispatch({
           type: "FAILED_GET_SEARCH",
+        });
+      });
+  };
+};
+
+export const getMovieByID = ({ id, type, params = {} }) => {
+  return async (dispatch) => {
+    await axios
+      .get(BASE_URL + `?apikey=${API_KEY}`, {
+        params: {
+          i: id,
+          type: type || "movie",
+          plot: "full",
+          ...params,
+        },
+      })
+      .then((response) => {
+        dispatch({
+          type: "SUCCESS_GET_DETAIL",
+          payload: response.data,
+        });
+      })
+      .catch(() => {
+        dispatch({
+          type: "FAILED_GET_DETAIL",
         });
       });
   };
