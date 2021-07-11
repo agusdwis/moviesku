@@ -4,7 +4,7 @@ const useScrollTop = () => {
   const [scrollTop, setScrollTop] = useState(0);
 
   const goTop = () => {
-    window.scrollTo({ top: 0, behavior: "smooth" });
+    window.scrollTo({ top: 0 });
   };
 
   useEffect(() => {

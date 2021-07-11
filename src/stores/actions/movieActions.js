@@ -135,3 +135,28 @@ export const getMovieByID = ({ id, type, params = {} }) => {
       });
   };
 };
+
+export const getRecommended = ({ search = "2021", page = 1 }) => {
+  return async (dispatch) => {
+    await axios
+      .get(BASE_URL + `?apikey=${API_KEY}`, {
+        params: {
+          s: search,
+          type: "movie",
+          page: page,
+          plot: "full",
+        },
+      })
+      .then((response) => {
+        dispatch({
+          type: "SUCCESS_GET_BEST",
+          payload: response.data,
+        });
+      })
+      .catch(() => {
+        dispatch({
+          type: "FAILED_GET_BEST",
+        });
+      });
+  };
+};

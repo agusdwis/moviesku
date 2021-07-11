@@ -1,7 +1,17 @@
-import React, { Fragment } from "react";
+import React, { useState, Fragment, lazy } from "react";
 import { Link } from "react-router-dom";
 
+const Modal = lazy(() => import("components/Modal"));
+
 const MovieList = ({ data, loading, callback = () => {} }) => {
+  const [show, setShow] = useState(false);
+  const [image, setImage] = useState("");
+
+  const handleModal = (img) => {
+    setShow(true);
+    setImage(img);
+  };
+
   return (
     <Fragment>
       {(data?.length !== 0 || data) && (
@@ -10,6 +20,7 @@ const MovieList = ({ data, loading, callback = () => {} }) => {
             <div key={id} className="group cursor-pointer px-2 my-2 relative">
               <div className="group overflow-hidden relative bg-background">
                 <img
+                  onClick={() => handleModal(item)}
                   src={item.Poster}
                   alt={item.Title}
                   width={400}
@@ -50,6 +61,8 @@ const MovieList = ({ data, loading, callback = () => {} }) => {
           <p className="text-center text-bold text-lg">Loading...</p>
         </div>
       )}
+
+      <Modal image={image} show={show} onClose={() => setShow(false)} />
     </Fragment>
   );
 };

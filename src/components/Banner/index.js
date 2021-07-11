@@ -3,22 +3,18 @@ import { Link } from "react-router-dom";
 
 import HomePost from "assets/img/home.jpeg";
 
-const Banner = (props) => {
-  // const handleChangeRoute = () => {
-  //   props.history.push("/browse/search");
-  // };
+const Banner = ({ recommended }) => {
+  let selected;
+
+  if (recommended) {
+    selected = recommended[0];
+  }
 
   return (
     <section
       id="relative"
       className="w-full flex justify-center relative sm:static"
     >
-      {/* <img
-        src={HomePost}
-        alt="Home Poster"
-        className="absolute top-0 left-0 w-full h-screen object-cover"
-      /> */}
-
       <div className="container h-screen">
         <div className="animate-drop h-7/10 flex flex-col justify-end">
           <span className="text-white opacity-90 block font-semibold mb-7">
@@ -45,18 +41,23 @@ const Banner = (props) => {
             <div className="w-1/2 flex flex-col justify-center pr-5">
               <span className="text-xs sm:text-md">Best movies to watch</span>
               <div className="flex-0">
-                <button className="flex items-center mt-3">
-                  <p className="text-xs sm:text-md">More</p>
-                  <i className="ri-arrow-right-line"></i>
-                </button>
+                <Link
+                  to={`/movie/detail/${selected?.imdbID}/${selected?.Title}`}
+                >
+                  <button className="flex items-center mt-3">
+                    <p className="text-xs sm:text-md">More</p>
+                    <i className="ri-arrow-right-line"></i>
+                  </button>
+                </Link>
               </div>
             </div>
 
             <div className="w-1/2 overflow-hidden cursor-pointer">
               <img
-                src={HomePost}
+                src={selected?.Poster || HomePost}
                 alt=""
-                className="w-52 h-20 sm:h-28 transform duration-300 hover:scale-110"
+                width={100}
+                className="w-44 h-20 sm:h-28 md:h-40 transform duration-300 shadow-inner hover:scale-110"
               />
             </div>
           </div>

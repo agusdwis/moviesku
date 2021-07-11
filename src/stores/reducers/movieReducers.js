@@ -7,6 +7,7 @@ const initialMovieState = {
     data: [],
   },
   detail: null,
+  recommended: [],
 };
 
 const MovieReducers = (movieState = initialMovieState, action) => {
@@ -46,6 +47,11 @@ const MovieReducers = (movieState = initialMovieState, action) => {
       return {
         ...movieState,
         detail: action.payload,
+      };
+    case "SUCCESS_GET_BEST":
+      return {
+        ...movieState,
+        recommended: action.payload,
       };
     default:
       return {
