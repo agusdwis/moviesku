@@ -83,6 +83,9 @@ module.exports = {
           },
         },
       },
+      backgroundImage: (theme) => ({
+        "hero-pattern": "url('/src/assets/img/home.jpeg')",
+      }),
     },
   },
   variants: {

@@ -1,4 +1,4 @@
-import React, { useEffect, Fragment, lazy } from "react";
+import React, { useEffect, lazy } from "react";
 import { connect } from "react-redux";
 
 import ScrollTop from "helpers/scrollTop";
@@ -29,9 +29,9 @@ const HomePage = (props) => {
   }, []);
 
   return (
-    <Fragment>
+    <div className="bg-fixed bg-cover bg-hero-pattern">
       <NavigationBar />
-      <main className="">
+      <div className="bg-gradient-to-t from-background via-background to-transparent">
         <Banner />
         <section className="w-full flex flex-col items-center">
           <div className="container py-10 w-full">
@@ -50,10 +50,11 @@ const HomePage = (props) => {
             <Movies data={props.series?.Search} />
           </div>
         </section>
-      </main>
-      <Footer />
+        <Footer />
+      </div>
+
       {scrollPos >= 700 && <ScrollTop />}
-    </Fragment>
+    </div>
   );
 };
 

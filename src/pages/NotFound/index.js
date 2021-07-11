@@ -1,19 +1,11 @@
-import React, { Fragment } from "react";
+import React from "react";
 import ErrorImage from "assets/svg/404.svg";
 import { Link } from "react-router-dom";
 
-import HomePost from "assets/img/home.jpeg";
-
 const NotFound = (props) => {
   return (
-    <Fragment>
-      <div className="h-screen p-5 flex flex-col relative">
-        <img
-          src={HomePost}
-          alt="Home Poster"
-          className="absolute top-0 left-0 w-full h-screen object-cover z-0 opacity-40"
-        />
-
+    <div className="bg-fixed bg-cover bg-hero-pattern">
+      <div className="h-screen p-5 flex flex-col relative bg-gradient-to-t from-background">
         <div className="w-full h-3/5 md:h-2/3 flex justify-center items-center z-10">
           <div className="w-full sm:max-w-sm md:max-w-lg animate-drop-slow">
             <img
@@ -41,7 +33,7 @@ const NotFound = (props) => {
           </Link>
         </div>
       </div>
-    </Fragment>
+    </div>
   );
 };
 

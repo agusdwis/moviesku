@@ -8,7 +8,6 @@ import useScrollTop from "hooks/scrollHook";
 import { getSearchData } from "stores/actions/movieActions";
 
 const NavigationBar = lazy(() => import("components/Navigation"));
-const Footer = lazy(() => import("components/Footer"));
 const Movies = lazy(() => import("components/MovieList"));
 
 const Browse = (props) => {
@@ -16,20 +15,25 @@ const Browse = (props) => {
   const [search, setSearch] = useState("");
   const [page, setPage] = useState(1);
   const [loadMore, setLoadMore] = useState(true);
+  const [loading, setLoading] = useState(false);
 
   const fetchData = async (e) => {
+    setLoading(true);
     await props.getSearchData({
       search: search,
       page: 1,
     });
+    setLoading(false);
   };
 
   useEffect(() => {
     const getFirstData = async () => {
+      setLoading(true);
       await props.getSearchData({
         search: search || "Batman",
         page: page,
       });
+      setLoading(false);
     };
 
     getFirstData();
@@ -79,13 +83,13 @@ const Browse = (props) => {
   };
 
   return (
-    <div id="result">
+    <div id="result" className="relative bg-fixed bg-cover bg-hero-pattern">
       <NavigationBar />
 
-      <main className="mt-header">
+      <div className="mt-header bg-gradient-to-t from-background via-background to-transparent">
         <section className="w-full flex flex-col items-center">
-          <div className="container h-96">
-            <div className="container bg-primaryAccent rounded-sm h-full flex flex-col justify-center items-center">
+          <div className="container h-80 pt-10">
+            <div className="container bg-primaryAccent opacity-95 rounded-md h-full flex flex-col justify-center items-center">
               <h2 className="title text-2xl text-center mb-3">
                 Search Movies
                 <br /> Catalogues
@@ -94,7 +98,7 @@ const Browse = (props) => {
                 Find your favourite Movies, Series
               </p>
 
-              <div className="p-2 sm:p-3 w-full sm:w-2/3 flex items-center flex-row bg-primaryAlt rounded-sm">
+              <div className="p-2 sm:p-3 w-full sm:w-2/3 flex items-center flex-row bg-primaryAlt rounded-md opacity-100">
                 <input
                   type="text"
                   id="inputSearch"
@@ -129,11 +133,10 @@ const Browse = (props) => {
             </div>
           </div>
           <div className="container w-full pt-10">
-            <Movies data={props.search?.data} />
+            <Movies loading={loading} data={props.search?.data} />
           </div>
         </section>
-      </main>
-      <Footer />
+      </div>
 
       {scrollPos >= 700 && <ScrollTop />}
     </div>

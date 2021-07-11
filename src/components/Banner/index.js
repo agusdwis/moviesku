@@ -13,11 +13,11 @@ const Banner = (props) => {
       id="relative"
       className="w-full flex justify-center relative sm:static"
     >
-      <img
+      {/* <img
         src={HomePost}
         alt="Home Poster"
         className="absolute top-0 left-0 w-full h-screen object-cover"
-      />
+      /> */}
 
       <div className="container h-screen">
         <div className="animate-drop h-7/10 flex flex-col justify-end">

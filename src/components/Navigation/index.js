@@ -9,12 +9,12 @@ const NavigationBar = (props) => {
   useEffect(() => {
     const header = document.getElementById("header");
 
-    if (scrollPos >= 200 && scrollPos < 400) {
+    if (scrollPos >= 100 && scrollPos < 500) {
       header.classList.add("shadow-sm");
       header.classList.add("bg-background");
       header.classList.add("opacity-50");
       header.classList.remove("opacity-100");
-    } else if (scrollPos >= 400) {
+    } else if (scrollPos >= 500) {
       header.classList.remove("opacity-50");
       header.classList.add("opacity-100");
     } else {
@@ -27,10 +27,10 @@ const NavigationBar = (props) => {
 
   return (
     <header
-      className="w-full top-0 left-0 z-40 fixed flex justify-center opacity-100"
+      className="group w-full top-0 left-0 z-40 fixed flex justify-center opacity-100"
       id="header"
     >
-      <nav className="h-header flex justify-between items-center w-full container">
+      <nav className="h-header flex justify-between items-center w-full container group-hover:opacity-100">
         <Link to="/">
           <p className="hover:text-white font-medium">MovieKu</p>
         </Link>
