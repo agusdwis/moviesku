@@ -4,6 +4,7 @@ import { connect } from "react-redux";
 
 import ScrollTop from "helpers/scrollTop";
 import useScrollTop from "hooks/scrollHook";
+import Category from "helpers/searchCategory";
 
 import { getSearchData } from "stores/actions/movieActions";
 
@@ -12,7 +13,7 @@ const Movies = lazy(() => import("components/MovieList"));
 
 const Browse = (props) => {
   const scrollPos = useScrollTop();
-  const [search, setSearch] = useState("");
+  const [search, setSearch] = useState("Batman");
   const [page, setPage] = useState(1);
   const [loadMore, setLoadMore] = useState(true);
   const [loading, setLoading] = useState(false);
@@ -82,14 +83,24 @@ const Browse = (props) => {
     field.value = field.defaultValue;
   };
 
+  const searchCategory = async (category) => {
+    setLoading(true);
+    setSearch(category);
+    await props.getSearchData({
+      search: category,
+      page: 1,
+    });
+    setLoading(false);
+  };
+
   return (
     <div id="result" className="relative bg-fixed bg-cover bg-hero-pattern">
       <NavigationBar />
 
       <div className="mt-header bg-gradient-to-t from-background via-background to-transparent">
-        <section className="w-full flex flex-col items-center">
-          <div className="container h-80 pt-10">
-            <div className="container bg-primaryAccent opacity-95 rounded-md h-full flex flex-col justify-center items-center">
+        <div className="w-full flex flex-col items-center">
+          <div className="container h-80 mt-10">
+            <div className="container bg-primaryAccent opacity-95 rounded-t-md h-full flex flex-col justify-center items-center">
               <h2 className="title text-2xl text-center mb-3">
                 Search Movies
                 <br /> Catalogues
@@ -102,6 +113,7 @@ const Browse = (props) => {
                 <input
                   type="text"
                   id="inputSearch"
+                  value={search}
                   onKeyDown={(e) => handleSearchEnter(e)}
                   onChange={(e) => setSearch(e.target.value)}
                   placeholder="Search"
@@ -132,10 +144,28 @@ const Browse = (props) => {
               </div>
             </div>
           </div>
+
+          <div className="container w-full">
+            <div className="bg-primaryAccent opacity-95 rounded-b-md pl-4 pb-4 relative">
+              <div className="flex whitespace-nowrap space-x-4 overflow-x-scroll scrollbar-hide pr-24">
+                {Category?.map((item, i) => (
+                  <p
+                    onClick={() => searchCategory(item)}
+                    key={i}
+                    className="p-2 px-1 rounded-md text-sm cursor-pointer hover:text-white"
+                  >
+                    {item}
+                  </p>
+                ))}
+              </div>
+              <div className="absolute top-0 right-0 h-10 w-20 sm:w-24 bg-gradient-to-l from-primaryAccent"></div>
+            </div>
+          </div>
+
           <div className="container w-full pt-10">
             <Movies loading={loading} data={props.search?.data} />
           </div>
-        </section>
+        </div>
       </div>
 
       {scrollPos >= 700 && <ScrollTop />}
