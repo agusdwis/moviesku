@@ -1,6 +1,20 @@
-# Moviesku App (Stockbit Test)
+# Moviesku App
 My Movies is a web application for searching movie data. This application is made with [React.Js](https://reactjs.org/) and [TailwindCSS](https://tailwindcss.com/) as base styles.
 
+## :star: Features
+* Display List of Movies
+* Infinity Scroll Implementation
+* Search Movies
+* Movie Detail Page
+* Custom Modal and Hooks
+* Fully Responsive
+* Progressive Web Appplication (PWA)
+* Store Management using [Redux](https://redux.js.org/)
+* Unit Test ✖️ (soon) 
+* Auto Complete Search ✖️ (soon)
+
+## :star: Live Preview
+Go to [MoviesKu](https://moviesku.vercel.app/)
 
 ## :bulb: How To Install
 
