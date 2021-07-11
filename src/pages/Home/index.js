@@ -43,7 +43,7 @@ const HomePage = (props) => {
       {/* <NavigationBar /> */}
       <div className="bg-gradient-to-t from-background via-background to-transparent">
         <Banner recommended={props.recommended?.Search} />
-        <section className="w-full flex flex-col items-center">
+        <section id="movies" className="w-full flex flex-col items-center">
           <div className="container py-10 w-full">
             <p className="title text-2xl text-center">Best on Movies</p>
           </div>
@@ -52,7 +52,7 @@ const HomePage = (props) => {
           </div>
         </section>
 
-        <section className="w-full flex flex-col items-center">
+        <section id="series" className="w-full flex flex-col items-center">
           <div className="container py-10 w-full">
             <p className="title text-2xl text-center">Best on Series</p>
           </div>

@@ -48,7 +48,10 @@ module.exports = {
       },
       animation: {
         slide: "slide 0.5s ease",
-        drop: "drop 0.5s ease",
+        drop: "drop 1s ease",
+        "drop-slow": "drop 1.5s ease",
+        "drop-slower": "drop 2s ease",
+        "drop-fast": "drop 0.5s ease",
         up: "up 0.5s ease",
       },
       keyframes: {

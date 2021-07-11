@@ -78,6 +78,24 @@
   }
 }
 
+@layer utilities {
+  .animate-delay-1 {
+    animation-delay: 0.5s;
+  }
+
+  .animate-delay-2 {
+    animation-delay: 1s;
+  }
+
+  .animate-delay-3 {
+    animation-delay: 1.5s;
+  }
+
+  .animate-delay-4 {
+    animation-delay: 2s;
+  }
+}
+
 ::-webkit-scrollbar {
   width: 0.6rem;
   background-color: var(--scroll-bar-color);

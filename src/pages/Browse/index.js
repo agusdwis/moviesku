@@ -10,6 +10,7 @@ import { getSearchData } from "stores/actions/movieActions";
 
 // const NavigationBar = lazy(() => import("components/Navigation"));
 const Movies = lazy(() => import("components/MovieList"));
+const Loading = lazy(() => import("components/Loading"));
 
 const Browse = (props) => {
   const [scrollPos] = useScrollTop();
@@ -17,14 +18,15 @@ const Browse = (props) => {
   const [page, setPage] = useState(1);
   const [loadMore, setLoadMore] = useState(true);
   const [loading, setLoading] = useState(false);
+  const [load, setLoad] = useState(false);
 
   const fetchData = async (e) => {
-    setLoading(true);
+    setLoad(true);
     await props.getSearchData({
       search: search,
       page: 1,
     });
-    setLoading(false);
+    setLoad(false);
   };
 
   useEffect(() => {
@@ -84,13 +86,13 @@ const Browse = (props) => {
   };
 
   const searchCategory = async (category) => {
-    setLoading(true);
+    setLoad(true);
     setSearch(category);
     await props.getSearchData({
       search: category,
       page: 1,
     });
-    setLoading(false);
+    setLoad(false);
   };
 
   return (
@@ -100,15 +102,15 @@ const Browse = (props) => {
         <div className="w-full flex flex-col items-center">
           <div className="container h-80 mt-10">
             <div className="container bg-primaryAccent opacity-95 rounded-t-md h-full flex flex-col justify-center items-center">
-              <h2 className="title text-2xl text-center mb-3">
+              <h2 className="animate-drop-slow title text-2xl text-center mb-3">
                 Search Movies
                 <br /> Catalogues
               </h2>
-              <p className="py-5 text-sm font-light mb-4">
+              <p className="animate-drop py-5 text-sm font-light mb-4">
                 Find your favourite Movies, Series
               </p>
 
-              <div className="p-2 sm:p-3 w-full sm:w-2/3 flex items-center flex-row bg-primaryAlt rounded-md opacity-100">
+              <div className="animate-drop p-2 sm:p-3 w-full sm:w-2/3 flex items-center flex-row bg-primaryAlt rounded-md opacity-100">
                 <input
                   type="text"
                   id="inputSearch"
@@ -151,7 +153,7 @@ const Browse = (props) => {
                   <p
                     onClick={() => searchCategory(item)}
                     key={i}
-                    className="p-2 px-1 rounded-md text-sm cursor-pointer hover:text-white"
+                    className="animate-slide p-2 px-1 rounded-md text-sm cursor-pointer hover:text-white"
                   >
                     {item}
                   </p>
@@ -167,6 +169,7 @@ const Browse = (props) => {
         </div>
       </div>
 
+      <Loading show={load} />
       {scrollPos >= 700 && <ScrollTop />}
     </div>
   );

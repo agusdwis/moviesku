@@ -1,5 +1,5 @@
 /* eslint-disable no-unused-vars */
-import React, { useEffect, useState, lazy } from "react";
+import React, { useEffect, useState, useRef, lazy } from "react";
 import { useParams } from "react-router-dom";
 import { getMovieByID, getMovies } from "stores/actions/movieActions";
 import { connect } from "react-redux";
@@ -11,11 +11,13 @@ import Category from "helpers/searchCategory";
 
 const Movies = lazy(() => import("components/MovieList"));
 const Footer = lazy(() => import("components/Footer"));
+const Loading = lazy(() => import("components/Loading"));
 
 const MovieDetails = (props) => {
   const [scrollPos, scrollTop] = useScrollTop();
   let { id, title } = useParams();
   const { detail } = props;
+  const InfoRef = useRef(null);
 
   const [loading, setLoading] = useState(false);
 
@@ -30,31 +32,38 @@ const MovieDetails = (props) => {
     // eslint-disable-next-line react-hooks/exhaustive-deps
   }, [id]);
 
+  const scrollDown = () => {
+    InfoRef.current.scrollIntoView({ behavior: "smooth", block: "start" });
+  };
+
   return (
     <div className="bg-fixed bg-cover bg-hero-detail">
       <div className="bg-gradient-to-t from-background via-background to-transparent">
         <div className="w-full flex flex-col items-center">
           <div className="container">
-            <div className="animate-drop h-auto sm:h-screen flex flex-col-reverse sm:flex-row">
+            <div className="h-auto sm:h-screen flex flex-col-reverse sm:flex-row">
               <div className="p-2 sm:p-auto w-full md:w-6/10 flex flex-col justify-center">
-                <h1 className="text-white title opacity-90 font-medium text-xl md:text-4xl my-1 sm:my-2">
+                <h1 className="animate-drop-slow text-white title opacity-90 font-medium text-xl md:text-4xl my-1 sm:my-2">
                   {detail?.Title}
                 </h1>
 
-                <div className="my-1 sm:my-2 flex flex-row space-x-5">
+                <div className="animate-drop my-1 sm:my-2 flex flex-row space-x-5">
                   <p className="text-xs sm:text-md">{detail?.Rated}</p>
                   <p className="text-xs sm:text-md">{detail?.Genre}</p>
                   <p className="text-xs sm:text-md">{detail?.imdbRating}/10</p>
                 </div>
 
-                <div className="my-1 sm:my-2">
+                <div className="animate-drop my-1 sm:my-2">
                   <p className="font-extralight overflow-ellipsis text-xs md:text-md opacity-75 lg:pr-10">
                     {detail?.Plot}
                   </p>
                 </div>
 
-                <div className="mt-4">
-                  <button className="button transform duration-300 hover:scale-105 p-4 px-8 md:p-5 md:px-10 text-lg font-semibold flex flex-row items-center">
+                <div className="mt-4 animate-drop-fast">
+                  <button
+                    onClick={() => scrollDown()}
+                    className="button transform duration-300 hover:scale-105 p-3 px-6 md:p-5 md:px-10 text-lg font-semibold flex flex-row items-center"
+                  >
                     <i className="ri-arrow-down-s-line"></i>
                     <p className="text-white text-sm md:text-md sm:text-md pl-3">
                       Take a look
@@ -64,7 +73,7 @@ const MovieDetails = (props) => {
               </div>
 
               <div className="mt-header sm:mt-0 flex w-full md:w-4/10 justify-center items-center">
-                <div className="overflow-hidden sm:p-7 xl:p-0">
+                <div className="overflow-hidden sm:p-7 xl:p-0 animate-drop-slow">
                   <img
                     src={detail?.Poster}
                     alt={detail?.Title}
@@ -75,8 +84,8 @@ const MovieDetails = (props) => {
               </div>
             </div>
 
-            <div className="">
-              <div className="pt-5 flex flex-col md:flex-row">
+            <div ref={InfoRef} className="pt-20">
+              <div className="animate-drop-slow pt-5 flex flex-col md:flex-row">
                 <div className="w-full md:w-7/10 pr-14 mb-10">
                   <p className="title text-2xl mb-5">Synopsis</p>
                   <p className="text-white opacity-80 text-xs md:text-md">
@@ -96,7 +105,7 @@ const MovieDetails = (props) => {
                 </div>
               </div>
 
-              <div className="pt-5 flex flex-col md:flex-row">
+              <div className="animate-drop pt-5 flex flex-col md:flex-row">
                 <div className="w-full md:w-7/10 pr-14 mb-10">
                   <p className="title text-2xl mb-5">Productions</p>
                   <div className="grid md:grid-cols-2 gap-5">
@@ -149,7 +158,7 @@ const MovieDetails = (props) => {
                 </div>
               </div>
 
-              <div className="pt-5">
+              <div className="animate-drop-fast pt-5">
                 <p className="title text-2xl mb-5">Cast</p>
                 <div className="relative">
                   <div className="flex flex-row space-x-10 overflow-x-scroll scrollbar-hide pr-14 sm:pr-24">
@@ -191,6 +200,7 @@ const MovieDetails = (props) => {
         <Footer />
       </div>
 
+      <Loading show={loading} />
       {scrollPos >= 700 && <ScrollTop />}
     </div>
   );

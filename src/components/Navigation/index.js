@@ -38,37 +38,27 @@ const NavigationBar = (props) => {
 
           <div className="w-4/10 lg:w-3/10 hidden sm:block">
             <ul className="flex flex-row justify-between">
-              <li className="">
-                <a
-                  href="#home"
-                  className="font-medium hover:text-white text-sm"
-                >
-                  Home
-                </a>
+              <li className="cursor-pointer">
+                <Link to="/">
+                  <p className="font-medium hover:text-white text-sm">Home</p>
+                </Link>
               </li>
-              <li className="">
-                <a
-                  href="#home"
-                  className="font-medium hover:text-white text-sm"
-                >
-                  Movies
-                </a>
+              <li className="cursor-pointer">
+                <Link to="/">
+                  <p className="font-medium hover:text-white text-sm">Movies</p>
+                </Link>
               </li>
-              <li className="">
-                <a
-                  href="#home"
-                  className="font-medium hover:text-white text-sm"
-                >
-                  Series
-                </a>
+              <li className="cursor-pointer">
+                <Link to="/">
+                  <p className="font-medium hover:text-white text-sm">Series</p>
+                </Link>
               </li>
-              <li className="">
-                <a
-                  href="#home"
-                  className="font-medium hover:text-white text-sm"
-                >
-                  Explore
-                </a>
+              <li className="cursor-pointer">
+                <Link to="/browse/search">
+                  <p className="font-medium hover:text-white text-sm">
+                    Explore
+                  </p>
+                </Link>
               </li>
             </ul>
           </div>
@@ -84,37 +74,33 @@ const NavigationBar = (props) => {
       {show && (
         <div className="fixed sm:hidden animate-slide !opacity-100 top-0 bg-background h-screen w-7/10 p-12 z-50 shadow-sm right-0">
           <ul className="flex flex-col">
-            <li className="my-7">
-              <a
-                href="#home"
-                className="text-textColorLight uppercase font-regular hover:text-textColor"
-              >
-                Home
-              </a>
+            <li onClick={() => setShow(false)} className="my-7">
+              <Link to="/">
+                <p className="text-textColorLight uppercase font-regular hover:text-textColor">
+                  Home
+                </p>
+              </Link>
             </li>
-            <li className="mb-7">
-              <a
-                href="#about"
-                className="text-textColorLight uppercase font-regular hover:text-textColor"
-              >
-                Movies
-              </a>
+            <li onClick={() => setShow(false)} className="mb-7">
+              <Link to="/">
+                <p className="text-textColorLight uppercase font-regular hover:text-textColor">
+                  Movies
+                </p>
+              </Link>
             </li>
-            <li className="mb-7">
-              <a
-                href="#about"
-                className="text-textColorLight uppercase font-regular hover:text-textColor"
-              >
-                Series
-              </a>
+            <li onClick={() => setShow(false)} className="mb-7">
+              <Link to="/">
+                <p className="text-textColorLight uppercase font-regular hover:text-textColor">
+                  Series
+                </p>
+              </Link>
             </li>
-            <li className="mb-7">
-              <a
-                href="#about"
-                className="text-textColorLight uppercase font-regular hover:text-textColor"
-              >
-                Explore
-              </a>
+            <li onClick={() => setShow(false)} className="mb-7">
+              <Link to="/browse/search">
+                <p className="text-textColorLight uppercase font-regular hover:text-textColor">
+                  Explore
+                </p>
+              </Link>
             </li>
           </ul>
 
